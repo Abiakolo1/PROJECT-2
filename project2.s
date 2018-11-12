@@ -8,6 +8,11 @@
     main:
         li $v0, 4 #receives input
         la $a0, char_array #loads buffer into address
+        li $a1, 1000 #allocates space for string
+        syscall
+        la $a0, new_line #loads new line
+        li $v0, 4 #prints new line for string
+        syscall
 
 
 
