@@ -21,6 +21,11 @@
         li $v0, 11 #load
         move $a0, $t0 #move the content of t0, to the arguement parameter $a0
 
+is_empty_string: #statements to check if number of characters is empty ot not
+        li $v0, 4
+        la $a0, empty_string_error
+        syscall
+        jr $ra
 
 
 
