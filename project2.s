@@ -20,16 +20,18 @@
         lb $t5, 0($t1) #get i'th character of string
         li $v0, 11 #load
         move $a0, $t0 #move the content of t0, to the arguement parameter $a0
-is_space:
-    move $s0, $t0    #set previous character with current one
-    addi $t1, $t1, 1    #incremented the address
-    addi $t3, $t3, 1    #incremented i
-    lb $t0, 0($t1)        #fetch the next character
-    bne $t1, $t2, loop    #loops when the next char is not a new line
-    li $t0, 4
-    ble $t6, $t1, is_empty_string    #checks if user input is greater than 4
-    li $v0, 4
-    la $a0, too_long_string
+    is_space:
+        move $s0, $t0    #set previous character with current one
+        addi $t1, $t1, 1    #incremented the address
+        addi $t3, $t3, 1    #incremented i
+        lb $t0, 0($t1)        #fetch the next character
+        bne $t1, $t2, loop    #loops when the next char is not a new line
+        li $t0, 4
+        ble $t6, $t1, is_empty_string    #checks if user input is greater than 4
+        li $v0, 4
+        la $a0, too_long_string
+        syscall
+        jr $ra
     is_empty_too_long: #statements to check if number of characters is empty ot not
         bne $t6, $zero, base_36  #if user input is am series of null string , print empty string statement
         li $v0, 4
