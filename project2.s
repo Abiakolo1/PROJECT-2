@@ -30,6 +30,10 @@
     base_36:
         li $t1, 0 #initialize i
         addi $t1, $t6, -1 #initialize j's length
-        la $s0, string_use #fetch string address 
+        la $s0, string_use #fetch string address
+        add $s0, $s0, $t2    #got the address of the start of the number
+        add $s0,$s0, $t0   #add length -1 to the address(starts from the end)
+        li $t8, 1     #initialized power of 36
+        li $t9, 0    #initialized sum of decimal value
 
 
