@@ -20,6 +20,11 @@
         lb $t5, 0($t1) #get i'th character of string
         li $v0, 11 #load
         move $a0, $t0 #move the content of t0, to the arguement parameter $a0
+is_space:
+    move $s0, $t0    #set previous character with current one
+    addi $t1, $t1, 1    #incremented the address
+    addi $t3, $t3, 1    #incremented i
+
 
     is_empty_string: #statements to check if number of characters is empty ot not
         bne $t6, $zero, base_36  #if user input is am series of null string , print empty string statement
@@ -35,5 +40,6 @@
         add $s0,$s0, $t0   #add length -1 to the address(starts from the end)
         li $t8, 1     #initialized power of 36
         li $t9, 0    #initialized sum of decimal value
+        li $s3, 36    #constant of 36
 
 
