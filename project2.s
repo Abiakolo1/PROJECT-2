@@ -20,6 +20,10 @@
         lb $t5, 0($t1) #get i'th character of string
         li $v0, 11 #load
         move $a0, $t0 #move the content of t0, to the arguement parameter $a0
+    is_increment:
+        bne $t0, $t4, is_space #if current character is a space and
+        bne $t6, $0, is_space #if num of previous character is equal to 0 then count space
+        addi $t2, $t2, 1
     is_space:
         move $s0, $t0    #set previous character with current one
         addi $t1, $t1, 1    #incremented the address
@@ -27,7 +31,7 @@
         lb $t0, 0($t1)        #fetch the next character
         bne $t1, $t2, loop    #loops when the next char is not a new line
         li $t0, 4
-        ble $t6, $t1, is_empty_string    #checks if user input is greater than 4
+        bne $t6, $t1, is_empty_string    #checks if user input is greater than 4
         li $v0, 4
         la $a0, too_long_string
         syscall
