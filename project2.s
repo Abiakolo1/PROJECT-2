@@ -24,7 +24,8 @@ is_space:
     move $s0, $t0    #set previous character with current one
     addi $t1, $t1, 1    #incremented the address
     addi $t3, $t3, 1    #incremented i
-
+    lb $t0, 0($t1)        #fetch the next character
+    bne $t1, $t2, loop    #loops when the next char is not a new line
 
     is_empty_string: #statements to check if number of characters is empty ot not
         bne $t6, $zero, base_36  #if user input is am series of null string , print empty string statement
