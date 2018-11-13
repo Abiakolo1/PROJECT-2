@@ -52,4 +52,7 @@
         li $t9, 0    #initialized sum of decimal value
         li $s3, 36    #constant of 36
     convert_next:
+`   is_capital_digit:
+    is_lower_digit:
+    is_digit_digit:
 
