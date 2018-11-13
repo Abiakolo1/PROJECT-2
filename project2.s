@@ -10,6 +10,11 @@
         la $a0, string_use #loads buffer into address
         syscall
         la $t1, string_use #loads space here
+        li $t3, 0 #initialized i as zero
+        li $t4, 32 #allocate space here
+        li $s0, 0 #initialize previous char to be 0
+        li $t2, 0x0A #loaded a new line
+        li $t6, 0 #initialized the num_characters to be 0.
 
 
 
