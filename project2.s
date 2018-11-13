@@ -22,10 +22,11 @@
         move $a0, $t0 #move the content of t0, to the arguement parameter $a0
 
 is_empty_string: #statements to check if number of characters is empty ot not
+        bne $t6, $zero, base_36  #if user input is am series of null string , print empty string statement
         li $v0, 4
-        la $a0, empty_string_error
+        la $a0, empty_string #loads the empty string comment
         syscall
-        jr $ra
-
+        jr $ra #goes to return address
+base_36:
 
 
