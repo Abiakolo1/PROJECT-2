@@ -15,7 +15,11 @@
         li $s0, 0 #initialize previous char to be 0
         li $t2, 0x0A #loaded a new line
         li $t6, 0 #initialized the num_characters to be 0.
-
+        li $t2, 0 #number of spaces
+    loop:
+        lb $t5, 0($t1) #get i'th character of string
+        li $v0, 11 #load
+        move $a0, $t0 #move the content of t0, to the arguement parameter $a0
 
 
 
