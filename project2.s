@@ -52,6 +52,10 @@
         li $t9, 0    #initialized sum of decimal value
         li $s3, 36    #constant of 36
     convert_next:
+        lb $s1, 0($s0)
+        li $t2, 65    #smallest ascii value for capital letters
+        li $t3, 90    #biggest ascii value for capital letters
+        blt $s1, $t2, dont_convert_capital_letter_to_digit     #if ascii[j] >= 65 and
 `   is_capital_digit:
     is_lower_digit:
     is_digit_digit:
