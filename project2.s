@@ -15,7 +15,7 @@
         li $s0, 0 #initialize previous char to be 0
         li $t2, 0x0A #loaded a new line
         li $t6, 0 #initialized the num_characters to be 0.
-        li $t2, 0 #number of spaces
+        li $t7, 0 #number of spaces
     loop:
         lb $t5, 0($t1) #get i'th character of string
         li $v0, 11 #load
@@ -23,7 +23,7 @@
     is_increment:
         bne $t0, $t4, is_space #if current character is a space and
         bne $t6, $0, is_space #if num of previous character is equal to 0 then count space
-        addi $t2, $t2, 1
+        addi $t7, $t7, 1
     is_space:
         move $s0, $t0    #set previous character with current one
         addi $t1, $t1, 1    #incremented the address
@@ -42,7 +42,7 @@
         la $a0, empty_string #loads the empty string comment
         syscall
         jr $ra #goes to return address
-    base_36:
+    is_empty_string_error:
         li $t1, 0 #initialize i
         addi $t1, $t6, -1 #initialize j's length
         la $s0, string_use #fetch string address
@@ -51,5 +51,5 @@
         li $t8, 1     #initialized power of 36
         li $t9, 0    #initialized sum of decimal value
         li $s3, 36    #constant of 36
-
+    convert_next:
 
