@@ -53,9 +53,12 @@
         li $s3, 36    #constant of 36
     convert_next:
         lb $s1, 0($s0)
-        li $t2, 65    #smallest ascii value for capital letters
+        li $t3, 65    #smallest ascii value for capital letters
         li $t3, 90    #biggest ascii value for capital letters
-        blt $s1, $t2, dont_convert_capital_letter_to_digit     #if ascii[j] >= 65 and
+        blt $s1, $t3, dont_convert_capital_letter_to_digit     #if ascii[j] >= 65 and
+        bgt $s1, $t3, dont_convert_capital_letter_to_digit      #if ascii[j] <= 90
+        addi $t8, $s1, -55     #got the decimal value of the capital letter
+        
 `   is_capital_digit:
     is_lower_digit:
     is_digit_digit:
