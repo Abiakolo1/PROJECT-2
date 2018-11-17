@@ -92,4 +92,6 @@ main:
                 bne $t0, $s4, NoInvalidOutput #if $t0 is -1 then print wrongCharErrorMsg
                 li $v0, 4
                 la $a0, wrongCharErrorMsg
-
+                syscall
+                jr $ra
+            NoInvalidOutput:
