@@ -32,3 +32,6 @@ main:
     beq $t7, $t1, NoIncrement      #if character is not equal to a space, increment numofcharacters
     addi $s7, $s7, 1
     NoIncrement:
+        bne $t7, $t1, NoCount        #if space and
+        bne $s7, $0, NoCount         #if prevNum is equal to 0 then count space
+        addi $s6, $s6, 1
