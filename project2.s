@@ -35,3 +35,7 @@ main:
         bne $t7, $t1, NoCount        #if space and
         bne $s7, $0, NoCount         #if prevNum is equal to 0 then count space
         addi $s6, $s6, 1
+    NoCount:
+        move $s0, $t7           #set prev char to current one 
+        addi $s5, $s5, 1        #incremented the address
+        addi $t5, $t5, 1        #incremented i
