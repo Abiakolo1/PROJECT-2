@@ -78,3 +78,7 @@ main:
             NoConvertUpDigit:
                 li $t5, 97      #A
                 li $t1, 122     #Z
+                blt $s1, $t5, NoConvertCase    #if ascii[j] >= 97 and
+                bgt $s1, $t1, NoConvertCase     #if ascii[j] <= 122
+                addi $t0, $s1, -87      #got the decimal value of the capital letter
+                NoConvertCase:
