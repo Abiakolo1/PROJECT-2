@@ -6,16 +6,16 @@ emptyErrorMsg: .asciiz "Input is empty." #we use this for numbers where the inpu
 .text
 .globl main
 main:
+    li $v0, 8       #takes user input
+    la $a0, userStr
+    syscall
     la $s5, userStr      #  the address of the string
     li $t5, 0       #initialized i= 0
     li $t1, 32      #  space here
     li $s0, 0       #initialized previous character to 0
-    li $s1, 0       #initialized previous character to 0
-    li $t7, 32      #space
-    li $t8, 0       #address of loop variable
-    li $t6, 0       #initialized num_of_chracters
-    li $t5, 0x0A    #new line
-    li $t4, 0       #get num of spaces before the first character
+    li $s7, 0       #initialized numofchracters
+    li $t6, 0x0A    #  new line here
+    li $s6, 0       #number of spaces in front( used for during calculation)
     loop:
         lb $t0, 0($t9)  #got a character of the string
         beq $t0, $t5, break #if char is a newline break
