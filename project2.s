@@ -82,9 +82,14 @@ main:
                 bgt $s1, $t1, NoConvertCase     #if ascii[j] <= 122
                 addi $t0, $s1, -87      #got the decimal value of the capital letter
             NoConvertCase:
-                li $t5, 48      #smallest ascii value for capital letters
-                li $t1, 57      #biggest ascii value for capital letters
-                blt $s1, $t5, NoConvert       #if ascii[j] >= 48 and
-                bgt $s1, $t1, NoConvert       #if ascii[j] <= 57
+                li $t5, 48      #0
+                li $t1, 57      #9
+                blt $s1, $t5, NoConvert       #>= 48 and
+                bgt $s1, $t1, NoConvert       #<= 57
                 addi $t0, $s1, -48      #got the decimal value of the capital letter
-                NoConvert:
+            NoConvert:
+                li $s4, -1      #initialized -1 in $s4
+                bne $t0, $s4, NoInvalidOutput #if $t0 is -1 then print wrongCharErrorMsg
+                li $v0, 4
+                la $a0, wrongCharErrorMsg
+
