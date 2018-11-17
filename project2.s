@@ -64,7 +64,11 @@ main:
             li $t9, 0       #initialized sum of decimal value
             li $s3, 36      #constant of 36
         ConvertCharLoop:
-        li $t0, -1      #initialized  to -1
-        lb $s1, 0($s0)
-        li $t5, 65      #a
-        li $t1, 90      #z
+            li $t0, -1      #initialized  to -1
+            lb $s1, 0($s0)
+            li $t5, 65      #a
+            li $t1, 90      #z
+            blt $s1, $t5, NoConvertUpDigit     #if ascii[j] >= 65 and
+            bgt $s1, $t1, NoConvertUpDigit     #if ascii[j] <= 90
+            addi $t0, $s1, -55      #got the decimal value of the capital letter
+        NoConvertUpDigit:
