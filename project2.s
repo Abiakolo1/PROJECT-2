@@ -95,3 +95,6 @@ main:
                 syscall
                 jr $ra
             NoInvalidOutput:
+                mul $s2, $t0, $t2       #value = digit * powerof36
+                mul $t2, $t2, $s3       #powerofbase *= 36
+                add $t9, $t9, $s2       #sum  = value
