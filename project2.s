@@ -72,3 +72,7 @@ main:
             bgt $s1, $t1, NoConvertUpDigit     #if ascii[j] <= 90
             addi $t0, $s1, -55      #got the decimal value of the capital letter
         NoConvertUpDigit:
+            blt $s1, $t5, NoConvertUpDigit     #if ascii[j] >= 65 and
+            bgt $s1, $t1, NoConvertUpDigit     #if ascii[j] <= 90
+            addi $t0, $s1, -55      #got the decimal value of the capital letter
+            NoConvertUpDigit:
