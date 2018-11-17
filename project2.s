@@ -68,11 +68,13 @@ main:
             lb $s1, 0($s0)
             li $t5, 65      #a
             li $t1, 90      #z
-            blt $s1, $t5, NoConvertUpDigit     #if ascii[j] >= 65 and
-            bgt $s1, $t1, NoConvertUpDigit     #if ascii[j] <= 90
-            addi $t0, $s1, -55      #got the decimal value of the capital letter
+            blt $s1, $t5, NoConvertUpDigit     #if >= 65 and
+            bgt $s1, $t1, NoConvertUpDigit     #if <= 90
+            addi $t0, $s1, -55      #got decimal value
         NoConvertUpDigit:
-            blt $s1, $t5, NoConvertUpDigit     #if ascii[j] >= 65 and
-            bgt $s1, $t1, NoConvertUpDigit     #if ascii[j] <= 90
+            blt $s1, $t5, NoConvertUpDigit     #if >= 65 and
+            bgt $s1, $t1, NoConvertUpDigit     #if <= 90
             addi $t0, $s1, -55      #got the decimal value of the capital letter
             NoConvertUpDigit:
+                li $t5, 97      #A
+                li $t1, 122     #Z
