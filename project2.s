@@ -21,4 +21,6 @@ main:
     beq $t7, $t6, breakloop #break when newline
     beq $t7, $t1, noCharError #if the character is not a space and
     bne $s0, $t1, noCharError #if the previous character is a space and
-
+    beq $s7, $0, noCharError          #if the num of previously seen characters is not zero and
+    beq $t7, $0, noCharError          #if the chLaracter is not null and
+    beq $t7, $t6, noCharError         #if the character is not new line then print invalid
