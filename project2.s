@@ -63,3 +63,8 @@ main:
             li $t2, 1       #initialized power of 36
             li $t9, 0       #initialized sum of decimal value
             li $s3, 36      #constant of 36
+        ConvertCharLoop:
+        li $t0, -1      #initialized  to -1
+        lb $s1, 0($s0)
+        li $t5, 65      #a
+        li $t1, 90      #z
