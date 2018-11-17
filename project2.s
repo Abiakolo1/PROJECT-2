@@ -59,3 +59,7 @@ main:
             addi $t7, $s7, -1       #initialize j
             la $s0, userStr      #string address
             add $s0, $s0, $s6       #start number
+            add $s0,$s0, $t7        #add length -1 to the address(starts from the end)
+            li $t2, 1       #initialized power of 36
+            li $t9, 0       #initialized sum of decimal value
+            li $s3, 36      #constant of 36
