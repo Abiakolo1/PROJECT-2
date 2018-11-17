@@ -17,5 +17,8 @@ main:
     li $t5, 0x0A    #new line
     li $t4, 0       #get num of spaces before the first character
     loop:
-    lb $t0, 0($t9)  #got a character of the string
+        lb $t0, 0($t9)  #got a character of the string
+        beq $t0, $t5, break_loop        #break when the current character is a newline
+        beq $t0, $t7, dont_print_invalid_spaces         #if the character is not a space and
+        bne $s1, $t7, dont_print_invalid_spaces         #if the previous character is a space and
 
