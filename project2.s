@@ -6,11 +6,10 @@ emptyErrorMsg: .asciiz "Input is empty." #we use this for numbers where the inpu
 .text
 .globl main
 main:
-li $v0, 8 #needed to gain user input
-la $a0, userStr
-syscall
-la $t9, userStr     #address of string
-li $s1, 0       #initialized previous character to 0
-li $t7, 32      #space
-li $t8, 0       #address of loop variable
+    li $v0, 8 #needed to gain user input
+    la $a0, userStr
+    syscall
+    la $t9, userStr     #address of string
+    li $s1, 0       #initialized previous character to 0
+    li $t7, 32      #space
 
