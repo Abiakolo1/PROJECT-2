@@ -29,3 +29,6 @@ main:
     syscall         #print invalid spaces
     jr $ra
     noCharError:
+    beq $t7, $t1, NoIncrement      #if character is not equal to a space, increment numofcharacters
+    addi $s7, $s7, 1
+    NoIncrement:
