@@ -72,10 +72,6 @@ main:
             bgt $s1, $t1, NoConvertUpDigit     #if <= 90
             addi $t0, $s1, -55      #got decimal value
         NoConvertUpDigit:
-            blt $s1, $t5, NoConvertUpDigit     #if >= 65 and
-            bgt $s1, $t1, NoConvertUpDigit     #if <= 90
-            addi $t0, $s1, -55      #got the decimal value of the capital letter
-            NoConvertUpDigit:
                 li $t5, 97      #A
                 li $t1, 122     #Z
                 blt $s1, $t5, NoConvertCase    #if >= 97 and
@@ -87,7 +83,7 @@ main:
                 blt $s1, $t5, NoConvert       #>= 48 and
                 bgt $s1, $t1, NoConvert       #<= 57
                 addi $t0, $s1, -48      #got the decimal value of the capital letter
-            NoConvert:
+            NoCoxnvert:
                 li $s4, -1      #initialized -1 in $s4
                 bne $t0, $s4, NoInvalidOutput #if $t0 is -1 then print wrongCharErrorMsg
                 li $v0, 4
