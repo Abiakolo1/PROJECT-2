@@ -24,3 +24,8 @@ main:
     beq $s7, $0, noCharError          #if the num of previously seen characters is not zero and
     beq $t7, $0, noCharError          #if the chLaracter is not null and
     beq $t7, $t6, noCharError         #if the character is not new line then print invalid
+    li $v0, 4
+    la $a0, wrongCharErrorMsg
+    syscall         #print invalid spaces
+    jr $ra
+    noCharError:
