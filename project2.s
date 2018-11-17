@@ -2,7 +2,7 @@
 userStr:    .space 2000
 tooLongErrorMsg:    .asciiz "Input is too long." # use this if the length of the string starting from the first letter to the next letter is longer than the input of 4 digits
 wrongCharErrorMsg:    .asciiz "Invalid base-36 number."#we use this for numbers that have spaces inbetween them and numbers and for numbers that have invalid characters such as the @ symbol in them
-emptyErrorMsg: .asciiz "Input is empty." #we use this for numbers where the input is only filled with spaces and if there is a null character, therefore I will need to check if it is a null string
+EmptyErrorMsg: .asciiz "Input is empty." #we use this for numbers where the input is only filled with spaces and if there is a null character, therefore I will need to check if it is a null string
 .text
 .globl main
 main:
@@ -43,3 +43,16 @@ main:
         breakloop:
         li $t7, 4
         ble $s7, $t7, OutputnotLong #checks if user input is greater than 4
+        li $v0, 4
+        la $a0, tooLongErrorMsg
+        syscall         #printed too long error for the input
+        jr $ra
+        OutputnotLong:
+            bne $s7, $zero, NonEmptyStringOuput   #if user input is empty, and
+            beq $t7, $t6, NonEmptyStringOuput     #if user input is a newline print invalid
+            li $v0, 4
+            la $a0, EmptyErrorMsg
+            syscall
+            jr $ra
+        NonEmptyStringOuput:
+
