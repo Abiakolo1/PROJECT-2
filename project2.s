@@ -49,10 +49,13 @@ main:
         jr $ra
         OutputnotLong:
             bne $s7, $zero, NonEmptyStringOuput   #if user input is empty, and
-            beq $t7, $t6, NonEmptyStringOuput     #if user input is a newline print invalid
+            beq $t7, $t6, NonEmptyStringOuput     #if user input is a newline print empty error message
             li $v0, 4
             la $a0, EmptyErrorMsg
             syscall
             jr $ra
         NonEmptyStringOuput:
-
+            li $s5, 0       #initialized inde
+            addi $t7, $s7, -1       #initialize j
+            la $s0, userStr      #string address
+            add $s0, $s0, $s6       #start number
