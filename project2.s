@@ -15,9 +15,10 @@ main:
     li $s0, 0       #initialized previous character to 0
     li $s7, 0       #initialized numofchracters
     li $t6, 0x0A    #  new line here
-    li $s6, 0       #number of spaces in front( used for during calculation)
+    li $s6, 0       #num Spaces
     loop:
-        lb $t0, 0($t9)  #got a character of the string
-        beq $t0, $t5, break #if char is a newline break
-        beq $t0, $t7, dontOutputSpaces #if char is not null,
-        bne $s1, $t7, dontOutputSpaces #if char is not a new line, then output the invalid statement
+    lb $t7, 0($s5) #got a character of the string
+    beq $t7, $t6, breakloop #break when newline
+    beq $t7, $t1, noCharError #if the character is not a space and
+    bne $s0, $t1, noCharError #if the previous character is a space and
+
