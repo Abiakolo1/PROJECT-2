@@ -12,4 +12,10 @@ main:
     la $t9, userStr     #address of string
     li $s1, 0       #initialized previous character to 0
     li $t7, 32      #space
+    li $t8, 0       #address of loop variable
+    li $t6, 0       #initialized num_of_chracters
+    li $t5, 0x0A    #new line
+    li $t4, 0       #get num of spaces before the first character
+    loop:
+    lb $t0, 0($t9)  #got a character of the string
 
