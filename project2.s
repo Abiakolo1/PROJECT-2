@@ -84,4 +84,7 @@ main:
             NoConvertCase:
                 li $t5, 48      #smallest ascii value for capital letters
                 li $t1, 57      #biggest ascii value for capital letters
-
+                blt $s1, $t5, NoConvert       #if ascii[j] >= 48 and
+                bgt $s1, $t1, NoConvert       #if ascii[j] <= 57
+                addi $t0, $s1, -48      #got the decimal value of the capital letter
+                NoConvert:
