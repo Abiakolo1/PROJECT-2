@@ -98,3 +98,7 @@ main:
                 mul $s2, $t0, $t2       #value = digit * powerof36
                 mul $t2, $t2, $s3       #powerofbase *= 36
                 add $t9, $t9, $s2       #sum  = value
+                addi $s5, $s5, 1        #incremented i
+                addi $t7, $t7, -1       #decremented j
+                addi $s0, $s0, -1       #incremented the address to get the next character
+                blt $s5, $s7, ConvertCharLoop
